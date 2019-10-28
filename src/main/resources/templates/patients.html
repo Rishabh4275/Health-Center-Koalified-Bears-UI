@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Details</title>
+</head>
+<body>
+<div th:each="patient : *{patients}">
+    <h2 th:text="${patient.name}"></h2>
+    <p th:text="${patient.id}"></p>
+    <p th:text="${patient.email}"></p>
+    <p th:text="${patient.phone}"></p>
+    <a th:href="@{/patients/patiententry/{id}(id = ${patient.id})}">Edit</a><br />
+    <a th:href="@{/patients/patiententry/delete/{id}(id = ${patient.id})}">Delete</a>
+
+    <div class="">
+        <a href="/patients/patiententry">New Patient Entry</a>
+    </div>
+
+</body>
+</html>
