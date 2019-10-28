@@ -15,16 +15,18 @@ import java.util.Date;
 @Getter
 @Setter
 public class Patient {
-    private Long id;
+    private Long patient_id;
     @NotBlank
-    private String name;
+    private String first_name;
+    private String last_name;
+    private int age;
+    private String sex;
+    private int mobile;
+    private String insurance_id;
+    private String address;
+    
     @NotBlank
     private String email;
     private String phone;
-
-    public Patient(String name,String  email,String  phone){
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-    }
+    	
 }

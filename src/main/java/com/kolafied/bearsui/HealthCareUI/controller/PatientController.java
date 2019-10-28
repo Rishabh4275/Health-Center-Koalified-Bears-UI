@@ -1,5 +1,3 @@
-package com.kolafied.bearsui.HealthCareUI.controller;
-
 
 import com.kolafied.bearsui.HealthCareUI.model.Patient;
 import org.omg.CORBA.Environment;
