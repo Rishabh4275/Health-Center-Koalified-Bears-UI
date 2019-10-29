@@ -6,14 +6,29 @@
 </head>
 <body>
 <form method="post" th:action="${Action}">
-    <div>
-        <input name="name" type="text" placeholder="name" th:value="${name}" />
+<div>
+        <input name="PatientId" type="number" placeholder="id" th:value="${patientid}" />
     </div>
     <div>
-        <textarea name="email" type="text" placeholder="email" th:text="${email}"></textarea>
+        <input name="First Name" type="text" placeholder="firstname" th:value="${firstname}" />
     </div>
     <div>
-        <textarea name="phone" type="text" placeholder="phone" th:text="${phone}"></textarea>
+        <input name="Last Name" type="text" placeholder="lastname" th:value="${lastname}" />
+    </div>
+    <div>
+        <input name="Email" type="text" placeholder="email" th:text="${email}"/>
+    </div>
+    <div>
+        <input name="Mobile" type="text" placeholder="mobile" th:text="${mobile}"/>
+    </div>
+     <div>
+        <textarea name="Address" type="text" placeholder="address" th:text="${address}"></textarea>
+    </div>
+     <div>
+        <input name="Age" type="text" placeholder="age" th:text="${age}"/>
+    </div>
+    <div>
+        <input name="Sex" type="text" placeholder="sex" th:value="${sex}" />
     </div>
     <div>
         <button type="submit">Post</button>

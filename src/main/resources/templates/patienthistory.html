@@ -2,18 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Patient Entry</title>
+    <title>Patient History</title>
 </head>
 <body>
 <form method="post" th:action="${Action}">
     <div>
-        <input name="name" type="text" placeholder="name" th:value="${name}" />
+        <input name="patientId" type="number" placeholder="patient_id" th:value="${patient_id}" />
     </div>
     <div>
-        <textarea name="email" type="text" placeholder="email" th:text="${email}"></textarea>
+        <input name="caseId" type="number" placeholder="caseId" th:text="${caseId}"/>
     </div>
     <div>
-        <textarea name="phone" type="text" placeholder="phone" th:text="${phone}"></textarea>
+        <input name="doctorId" type="number" placeholder="doctorId" th:text="${doctorId}"/>
+    </div>
+    <div>
+        <input name="diagnoseCode" type="text" placeholder="diagnoseCode" th:text="${diagnoseCode}"/>
+    </div>
+    <div>
+        <input name="insuranceId" type="text" placeholder="insuranceId" th:value="${insuranceId}" />
+    </div>
+    <div>
+        <input name="dateOfAdmission" type="date" placeholder="dateOfAdmission" th:value="${dateOfAdmission}" />
     </div>
     <div>
         <button type="submit">Post</button>

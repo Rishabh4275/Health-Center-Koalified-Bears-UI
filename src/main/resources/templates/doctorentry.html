@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Entry</title>
+</head>
+<body>
+<form method="post" th:action="${Action}">
+ <div>
+        <input name="doctorid" type="number" placeholder="doctorid" th:value="${doctorid}" />
+    </div>
+    <div>
+        <input name="firstname" type="text" placeholder="firstname" th:value="${firstname}" />
+    </div>
+     <div>
+        <input name="lastname" type="text" placeholder="lastname" th:value="${lastname}" />
+    </div>
+     <div>
+        <input name="email" type="text" placeholder="email" th:value="${email}" />
+    </div>
+    <div>
+        <textarea name="specialization" type="text" placeholder="specialization" th:text="${specialization}"></textarea>
+    </div>
+    <div>
+        <input name="mobile" type="text" placeholder="mobile" th:text="${mobile}"/>
+    </div>
+      <div>
+        <textarea name="address" type="text" placeholder="address" th:text="${address}"></textarea>
+    </div>
+    <div>
+        <button type="submit">Post</button>
+    </div>
+</form>
+
+</body>
+</html>
