@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Entry</title>
+</head>
+<body>
+<form method="post" th:action="${Action}">
+    <div>
+        <input name="name" type="text" placeholder="name" th:value="${name}" />
+    </div>
+    <div>
+        <textarea name="email" type="text" placeholder="email" th:text="${email}"></textarea>
+    </div>
+    <div>
+        <textarea name="phone" type="text" placeholder="phone" th:text="${phone}"></textarea>
+    </div>
+    <div>
+        <button type="submit">Post</button>
+    </div>
+</form>
+
+</body>
+</html>
