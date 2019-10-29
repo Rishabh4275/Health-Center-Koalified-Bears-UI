@@ -19,12 +19,11 @@ public class Patient {
     private String lastName;
     private int age;
     private String sex;
-    private int mobile;
+    private String mobile;
     private String address;
     
     @NotBlank
     private String email;
-    private String phone;
     
     
 	public Long getPatientId() {
@@ -57,10 +56,10 @@ public class Patient {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public int getMobile() {
+	public String getMobile() {
 		return mobile;
 	}
-	public void setMobile(int mobile) {
+	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 	public String getAddress() {
@@ -74,12 +73,6 @@ public class Patient {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
 	}
     	
 }

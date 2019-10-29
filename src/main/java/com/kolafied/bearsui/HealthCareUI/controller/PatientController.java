@@ -90,7 +90,7 @@ public class PatientController {
 
         patient.setFirstName(name);
         patient.setEmail(email);
-        patient.setPhone(phone);
+        patient.setMobile(phone);
         restTemplate.put(entryPut, patient);
         return "redirect:/patients/";
     }
