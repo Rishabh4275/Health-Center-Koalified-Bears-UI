@@ -1,3 +1,4 @@
+package com.kolafied.bearsui.HealthCareUI.controller;
 
 import com.kolafied.bearsui.HealthCareUI.model.Patient;
 import org.omg.CORBA.Environment;
@@ -55,7 +56,7 @@ public class PatientController {
 
     @RequestMapping(value = "/patiententry", method = RequestMethod.POST)
     public String addPatient(@RequestParam String name, @RequestParam String email, @RequestParam String phone) {
-        Patient newPatient = new Patient( name, email, phone);
+        Patient newPatient = new Patient( );
         String entryUri = this.uri + "/patients/add";
         RestTemplate restTemplate = new RestTemplate();
         Patient patient = restTemplate.postForObject(entryUri, newPatient, Patient.class);
@@ -72,9 +73,9 @@ public class PatientController {
         //Patient patient= entryRepository.findOne(entryId);
 
         model.addAttribute("action", "/patiententry/" + id);
-        model.addAttribute("phone", patient.getPhone());
+        model.addAttribute("phone", patient.getMobile());
         model.addAttribute("email", patient.getEmail());
-        model.addAttribute("name", patient.getName());
+        model.addAttribute("name", patient.getFirstName());
         return "patiententry";
     }
 
@@ -87,7 +88,7 @@ public class PatientController {
         RestTemplate restTemplate = new RestTemplate();
         Patient patient = restTemplate.getForObject(entryPut, Patient.class);
 
-        patient.setName(name);
+        patient.setFirstName(name);
         patient.setEmail(email);
         patient.setPhone(phone);
         restTemplate.put(entryPut, patient);
