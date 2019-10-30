@@ -2,32 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Patient History</title>
+    <title>Patient History Entry</title>
 </head>
 <body>
-<form method="post" th:action="${Action}">
-    <div>
-        <input name="patientId" type="number" placeholder="patient_id" th:value="${patient_id}" />
+<div th:each="patienthistory : *{patienthistoryentry}">
+    <h2 th:text="${patienthistory.case_id}"></h2>
+    <p th:text="${patienthistory.patient_id}"></p>
+    <p th:text="${patienthistory.diagnose_code}"></p>
+    <p th:text="${patienthistory.insurance_id}"></p>
+    <p th:text="${patienthistory.date_of_admission}"></p>
+    <p th:text="${patienthistory.doctor_id}"></p>
+    <a th:href="@{/patienthistory/patienthistoryentry/{case_id}(case_id = ${patienthistory.case_id})}">Edit</a><br />
+    <a th:href="@{/patienthistory/patienthistoryentry/delete/{case_id}(case_id = ${patienthistory.case_id})}">Delete</a>
+
+    <div class="">
+        <a href="/patienthistory/patienthistoryentry">New Doctor Entry</a>
     </div>
-    <div>
-        <input name="caseId" type="number" placeholder="caseId" th:text="${caseId}"/>
-    </div>
-    <div>
-        <input name="doctorId" type="number" placeholder="doctorId" th:text="${doctorId}"/>
-    </div>
-    <div>
-        <input name="diagnoseCode" type="text" placeholder="diagnoseCode" th:text="${diagnoseCode}"/>
-    </div>
-    <div>
-        <input name="insuranceId" type="text" placeholder="insuranceId" th:value="${insuranceId}" />
-    </div>
-    <div>
-        <input name="dateOfAdmission" type="date" placeholder="dateOfAdmission" th:value="${dateOfAdmission}" />
-    </div>
-    <div>
-        <button type="submit">Post</button>
-    </div>
-</form>
 
 </body>
 </html>

@@ -1,11 +1,7 @@
 package com.kolafied.bearsui.HealthCareUI.controller;
 
 
-import com.kolafied.bearsui.HealthCareUI.model.Doctor;
-import com.kolafied.bearsui.HealthCareUI.model.Patient;
 import com.kolafied.bearsui.HealthCareUI.model.PatientHistory;
-import org.omg.CORBA.Environment;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -15,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
 
@@ -37,7 +32,7 @@ public class PatientHistoryController {
                 new ParameterizedTypeReference<List<PatientHistory>>(){});
         List<PatientHistory> allPatientHistory= response.getBody();
         model.addAttribute("patienthistory", allPatientHistory);
-        return "patienthistory";
+        return "patienthistoryentry";
     }
 
     @RequestMapping(value = "/patienthistoryentry", method = RequestMethod.GET)
@@ -49,7 +44,7 @@ public class PatientHistoryController {
         model.addAttribute("insurance_id", "");
         model.addAttribute("date_of_admission", "");
         model.addAttribute("doctor_id", "");
-        return "patienthistoryentry";
+        return "patienthistory";
     }
 
     @RequestMapping(value = "/patienthistoryentry", method = RequestMethod.POST)
@@ -77,7 +72,7 @@ public class PatientHistoryController {
         model.addAttribute("insurance_id", patientHistory.getInsurance_id());
         model.addAttribute("date_of_admission", patientHistory.getDate_of_admission());
         model.addAttribute("doctor_id", patientHistory.getDoctor_id());
-        return "patienthistoryentry";
+        return "patienthistory";
     }
 
     @RequestMapping(value = "/patienthistoryentry/{id}", method = RequestMethod.POST)

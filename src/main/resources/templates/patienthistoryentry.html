@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient History</title>
+</head>
+<body>
+<form method="post" th:action="${Action}">
+
+    <div>
+        <input name="caseId" type="number" placeholder="case_id" th:text="${case_id}"/>
+    </div>
+    <div>
+        <input name="doctorId" type="number" placeholder="doctor_id" th:text="${doctor_id}"/>
+    </div>
+    <div>
+        <input name="diagnoseCode" type="text" placeholder="diagnose_code" th:text="${diagnose_code}"/>
+    </div>
+    <div>
+        <input name="insuranceId" type="text" placeholder="insurance_id" th:value="${insurance_id}" />
+    </div>
+    <div>
+        <input name="dateOfAdmission" type="date" placeholder="date_of_admission" th:value="${date_of_admission}" />
+    </div>
+    <div>
+        <button type="submit">Post</button>
+    </div>
+</form>
+
+</body>
+</html>
