@@ -1,7 +1,6 @@
 package com.kolafied.bearsui.HealthCareUI.model;
 
 
-
 import javax.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -14,16 +13,15 @@ import java.util.Date;
 @Data
 @Getter
 @Setter
-public class Patient {
+public class Doctor {
     @NotBlank
-    private Long patientId;
+    private int case_id;
     @NotBlank
-    private String firstName;
-    private String lastName;
+    private int patient_id;
+    private String diagnose_code;
+    private String insurance_id;
     @NotBlank
-    private String email;
-    private int age;
-    private String sex;
-    private String mobile;
-    private String address;
+    private Date date_of_admission;
+
+
 }

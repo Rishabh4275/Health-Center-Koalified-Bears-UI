@@ -49,15 +49,20 @@ public class PatientController {
     @RequestMapping(value = "/patiententry", method = RequestMethod.GET)
     public String newEntry(Model model) {
         model.addAttribute("Action", "/patients/patiententry");
-        model.addAttribute("name", "");
+        model.addAttribute("patientId", "");
+        model.addAttribute("firstName", "");
+        model.addAttribute("lastName", "");
         model.addAttribute("email", "");
-        model.addAttribute("phone", "");
+        model.addAttribute("age", "");
+        model.addAttribute("sex", "");
+        model.addAttribute("mobile", "");
+        model.addAttribute("address", "");
         return "patiententry";
     }
 
     @RequestMapping(value = "/patiententry", method = RequestMethod.POST)
-    public String addPatient(@RequestParam String name, @RequestParam String email, @RequestParam String phone) {
-        Patient newPatient = new Patient( name, email, phone);
+    public String addPatient(@RequestParam Long patientId,@RequestParam String firstName,@RequestParam String lastName,@RequestParam String email,@RequestParam int age,@RequestParam String sex,@RequestParam String mobile,@RequestParam String address) {
+        Patient newPatient = new Patient( patientId, firstName, lastName, email, age, sex, mobile, address);
         String entryUri = this.uri + "/patients/add";
         RestTemplate restTemplate = new RestTemplate();
         Patient patient = restTemplate.postForObject(entryUri, newPatient, Patient.class);
@@ -74,24 +79,30 @@ public class PatientController {
         //Patient patient= entryRepository.findOne(entryId);
 
         model.addAttribute("action", "/patiententry/" + id);
-        model.addAttribute("phone", patient.getPhone());
+        model.addAttribute("firstName", patient.getFirstName());
+        model.addAttribute("lastName", patient.getLastName());
         model.addAttribute("email", patient.getEmail());
-        model.addAttribute("name", patient.getName());
+        model.addAttribute("age", patient.getAge());
+        model.addAttribute("sex", patient.getSex());
+        model.addAttribute("mobile", patient.getMobile());
+        model.addAttribute("address", patient.getAddress());
         return "patiententry";
     }
 
     @RequestMapping(value = "/patiententry/{id}", method = RequestMethod.POST)
-    public String updateEntry(@PathVariable(value = "id") Long id,
-                              @RequestParam String name,
-                              @RequestParam String email,
-                              @RequestParam String phone) {
+    public String updateEntry(@PathVariable(value = "id") Long id
+                              ,@RequestParam String firstName,@RequestParam String lastName,@RequestParam String email,@RequestParam int age,@RequestParam String sex,@RequestParam String mobile,@RequestParam String address) {
         String entryPut = this.uri + "/patients/"+id;
         RestTemplate restTemplate = new RestTemplate();
         Patient patient = restTemplate.getForObject(entryPut, Patient.class);
 
-        patient.setName(name);
+        patient.setFirstName(firstName);
+        patient.setLastName(lastName);
         patient.setEmail(email);
-        patient.setPhone(phone);
+        patient.setAge(age);
+        patient.setSex(sex);
+        patient.setMobile(mobile);
+        patient.setAddress(address);
         restTemplate.put(entryPut, patient);
         return "redirect:/patients/";
     }
