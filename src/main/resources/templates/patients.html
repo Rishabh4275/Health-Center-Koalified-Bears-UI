@@ -7,9 +7,13 @@
 <body>
 <div th:each="patient : *{patients}">
     <h2 th:text="${patient.firstname}"></h2>
-    <p th:text="${patient.id}"></p>
+    <h2 th:text="${patient.lastname}"></h2>
+    <p th:text="${patient.patientId}"></p>
     <p th:text="${patient.email}"></p>
-    <p th:text="${patient.phone}"></p>
+    <p th:text="${patient.age}"></p>
+    <p th:text="${patient.sex}"></p>
+    <p th:text="${patient.mobile}"></p>
+    <p th:text="${patient.address}"></p>
     <a th:href="@{/patients/patiententry/{id}(id = ${patient.id})}">Edit</a><br />
     <a th:href="@{/patients/patiententry/delete/{id}(id = ${patient.id})}">Delete</a>
 

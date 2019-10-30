@@ -15,13 +15,13 @@ import java.util.Date;
 @Setter
 public class Doctor {
     @NotBlank
-    private int case_id;
+    private Long doctor_id;
     @NotBlank
-    private int patient_id;
-    private String diagnose_code;
-    private String insurance_id;
+    private String name;
     @NotBlank
-    private Date date_of_admission;
-
-
+    private String specialization;
+    private int mobile;
+    @NotBlank
+    private String email;
+    private String address;
 }

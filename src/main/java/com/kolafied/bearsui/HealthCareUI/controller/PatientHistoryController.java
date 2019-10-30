@@ -43,17 +43,18 @@ public class PatientHistoryController {
     @RequestMapping(value = "/patienthistoryentry", method = RequestMethod.GET)
     public String newEntry(Model model) {
         model.addAttribute("Action", "/doctor/doctorentry");
-        model.addAttribute("id", "");
-        model.addAttribute("name", "");
-        model.addAttribute("email", "");
-        model.addAttribute("phone", "");
+        model.addAttribute("case_id", "");
+        model.addAttribute("patient_id", "");
+        model.addAttribute("diagnose_code", "");
+        model.addAttribute("insurance_id", "");
+        model.addAttribute("date_of_admission", "");
         model.addAttribute("doctor_id", "");
         return "patienthistoryentry";
     }
 
     @RequestMapping(value = "/patienthistoryentry", method = RequestMethod.POST)
-    public String addDoctor(@RequestParam Long id, @RequestParam String name, @RequestParam String email, @RequestParam String phone, @RequestParam int doctor_id) {
-        PatientHistory newPatientHistory = new PatientHistory( id, name, email, phone, doctor_id);
+    public String addDoctor(@RequestParam int case_id, @RequestParam int patient_id, @RequestParam String diagnose_code, @RequestParam String insurance_id,@RequestParam Date date_of_admission, @RequestParam int doctor_id) {
+        PatientHistory newPatientHistory = new PatientHistory( case_id, patient_id, diagnose_code, insurance_id,date_of_admission, doctor_id);
         String entryUri = this.uri + "/patienthistory/add";
         RestTemplate restTemplate = new RestTemplate();
         PatientHistory patient = restTemplate.postForObject(entryUri, newPatientHistory, PatientHistory.class);
@@ -70,24 +71,26 @@ public class PatientHistoryController {
         //Patient patient= entryRepository.findOne(entryId);
 
         model.addAttribute("action", "/patienthistoryentry/" + id);
-        model.addAttribute("id", patientHistory.getId());
-        model.addAttribute("name", patientHistory.getName());
-        model.addAttribute("email", patientHistory.getEmail());
-        model.addAttribute("phone", patientHistory.getPhone());
+        model.addAttribute("case_id", patientHistory.getCase_id());
+        model.addAttribute("patient_id", patientHistory.getPatient_id());
+        model.addAttribute("diagnose_code", patientHistory.getDiagnose_code());
+        model.addAttribute("insurance_id", patientHistory.getInsurance_id());
+        model.addAttribute("date_of_admission", patientHistory.getDate_of_admission());
         model.addAttribute("doctor_id", patientHistory.getDoctor_id());
         return "patienthistoryentry";
     }
 
     @RequestMapping(value = "/patienthistoryentry/{id}", method = RequestMethod.POST)
     public String updateEntry(@PathVariable(value = "id") Long id,
-             @RequestParam String name, @RequestParam String email, @RequestParam String phone, @RequestParam int doctor_id) {
+                              @RequestParam int patient_id, @RequestParam String diagnose_code, @RequestParam String insurance_id,@RequestParam Date date_of_admission, @RequestParam int doctor_id) {
         String entryPut = this.uri + "/patienthistory/"+id;
         RestTemplate restTemplate = new RestTemplate();
         PatientHistory patientHistory= restTemplate.getForObject(entryPut, PatientHistory.class);
 
-        patientHistory.setName(name);
-        patientHistory.setEmail(email);
-        patientHistory.setPhone(phone);
+        patientHistory.setPatient_id(patient_id);
+        patientHistory.setDiagnose_code(diagnose_code);
+        patientHistory.setInsurance_id(insurance_id);
+        patientHistory.setDate_of_admission(date_of_admission);
         patientHistory.setDoctor_id(doctor_id);
         restTemplate.put(entryPut, patientHistory);
         return "redirect:/patienthistory/";

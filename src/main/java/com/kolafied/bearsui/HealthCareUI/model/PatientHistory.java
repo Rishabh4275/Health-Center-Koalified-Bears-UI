@@ -14,12 +14,14 @@ import java.util.Date;
 @Getter
 @Setter
 public class PatientHistory {
-    private Long id;
     @NotBlank
-    private String name;
+    private int case_id;
     @NotBlank
-    private String email;
-    private String phone;
+    private int patient_id;
+    private String diagnose_code;
+    private String insurance_id;
+    @NotBlank
+    private Date date_of_admission;
     @NotBlank
     private int doctor_id;
 
