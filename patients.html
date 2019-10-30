@@ -8,18 +8,18 @@
 <div th:each="patient : *{patients}">
     <h2 th:text="${patient.firstname}"></h2>
     <h2 th:text="${patient.lastname}"></h2>
-    <p th:text="${patient.patientId}"></p>
     <p th:text="${patient.email}"></p>
     <p th:text="${patient.age}"></p>
     <p th:text="${patient.sex}"></p>
     <p th:text="${patient.mobile}"></p>
     <p th:text="${patient.address}"></p>
-    <a th:href="@{/patients/patiententry/{id}(id = ${patient.id})}">Edit</a><br />
-    <a th:href="@{/patients/patiententry/delete/{id}(id = ${patient.id})}">Delete</a>
+    <p th:text="${patient.patientId}"></p>
+    <a th:href="@{/patients/patiententry/{patientId}(id = ${patient.patientId})}">Edit</a><br />
+    <a th:href="@{/patients/delete/{patientId}(id = ${patient.patientId})}">Delete</a>
 
     <div class="">
         <a href="/patients/patiententry">New Patient Entry</a>
     </div>
-
+</div>
 </body>
 </html>
