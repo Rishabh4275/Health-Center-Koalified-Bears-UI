@@ -23,5 +23,4 @@ data.forEach(function(result, i) {
     app.appendChild(errorMessage)
   }
 }
-
 request.send()
