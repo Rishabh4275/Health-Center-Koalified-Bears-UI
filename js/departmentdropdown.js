@@ -1,4 +1,3 @@
-
 let dropdown = document.getElementById('appointment_department');
 console.log(dropdown)
 dropdown.length = 0;
@@ -21,7 +20,8 @@ request.onload = function() {
     var array=[];
     for (let i = 0; i < data.length; i++) {
       option = document.createElement('option');
-      option.text = data[i].deptName;
+      option.text = data[i].dept_name;
+      option.value=data[i].dept_id;
       if(!array.includes(option.text)){
         dropdown.add(option);
         array.push(option.text);

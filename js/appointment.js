@@ -1,48 +1,14 @@
-const app = document.getElementById('patient-list')
-var html = ""
-
-/*const redraw = document.createElement('div')
-app.appendChild(redraw)*/
-
-console.log(app.innerHTML)
-
-
-var request = new XMLHttpRequest()
-request.open('GET', 'http://localhost:8080/patients/all', true)
-request.onload = function() {
-  // Begin accessing JSON data here
-  var data = JSON.parse(this.response)
-  if (request.status >= 200 && request.status < 400) {
-data.forEach(function(result, i) {
-	html = '<tr><td>'+result.patientId+'</td><td>'+result.firstName+'</td><td>'+result.lastName+'</td><td>'+result.email+'</td><td>'+result.age+'</td><td>'+result.sex+'</td><td>'+result.mobile+'</td><td>'+result.address+'</td></tr>'
-	app.innerHTML += html
-})
-  } else {
-    const errorMessage = document.createElement('marquee')
-    errorMessage.textContent = `Error..!`
-    app.appendChild(errorMessage)
-  }
-}
-request.send()
-
---------
-
 var button=document.getElementById('appointment-submit');
 
 button.onclick = function() {
-var name = document.getElementById('appointment_name');
-var dept = document.getElementById('appointment_department');
-var email = document.getElementById('appointment_email');
-var mobile = document.getElementById('phone');
-var time = document.getElementById('appointment_time');
-var date = document.getElementById('appointment_date');
+	var name = document.getElementById('appointment_name');
+	var dept = document.getElementById('appointment_department');
+	var email = document.getElementById('appointment_email');
+	var mobile = document.getElementById('phone');
+	var time = document.getElementById('appointment_time');
+	var date = document.getElementById('appointment_date');
   
-  var appointmentRetreivalURL="http://localhost:8080/appointment/?availibility=Yes&roomType="+roomType;
-  var reqForRoom=new XMLHttpRequest();
-  reqForRoom.open("POST",roomRetreivalURL,true);
-  reqForRoom.send(null);
-  
-  reqForRoom.onreadystatechange = processRequest;
+  	var url="http://localhost:8080/appointment/add"
  
   function processRequest(e) {
     if (reqForRoom.readyState == 4) {
