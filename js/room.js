@@ -9,7 +9,7 @@ defaultOption.text = 'Room Type';
 dropdown.add(defaultOption);
 dropdown.selectedIndex = 0;
 
-const url = 'http://localhost:8080/rooms/availibility=Yes';
+const url = 'https://kolafiedbears.herokuapp.com/rooms/availibility=Yes';
 
 const request = new XMLHttpRequest();
 request.open('GET', url, true);

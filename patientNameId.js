@@ -8,7 +8,7 @@ opt.text = 'Select Patient';
 pat.add(opt);
 pat.selectedIndex = 0;
 
-const paturl = 'http://localhost:8080/patients/all';
+const paturl = 'https://kolafiedbears.herokuapp.com/patients/all';
 
 const req = new XMLHttpRequest();
 req.open('GET', paturl, true);

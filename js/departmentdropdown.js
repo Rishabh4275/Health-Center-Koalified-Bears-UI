@@ -8,7 +8,7 @@ defaultOption.text = 'Department Name';
 dropdown.add(defaultOption);
 dropdown.selectedIndex = 0;
 
-const url = 'http://localhost:8080/department/all';
+const url = 'https://kolafiedbears.herokuapp.com/department/all';
 
 const request = new XMLHttpRequest();
 request.open('GET', url, true);

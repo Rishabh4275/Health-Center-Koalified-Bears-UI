@@ -11,7 +11,7 @@ button.onclick = function() {
 	var date=Date.parse(dt);
 	console.log(date)
   
-  	var finUrl="http://localhost:8080/appointment/add"     	
+  	var finUrl="https://kolafiedbears.herokuapp.com/appointment/add"     	
       var jsonData={};
         	jsonData["name"]=name;
         	jsonData["deptId"]=deptId;

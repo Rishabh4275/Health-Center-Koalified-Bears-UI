@@ -1,4 +1,4 @@
-var button=document.getElementById('book-room');
+:var button=document.getElementById('book-room');
 
 
 
@@ -23,7 +23,7 @@ var room=document.getElementById('room-type');
 	var time=document.getElementById('room-time').value;
 	console.log(time)
 	
-	var roomRetreivalURL="http://localhost:8080/rooms?availibility=Yes&roomType="+roomType;
+	var roomRetreivalURL="https://kolafiedbears.herokuapp.com/rooms?availibility=Yes&roomType="+roomType;
 	var reqForRoom=new XMLHttpRequest();
 	reqForRoom.open("GET",roomRetreivalURL,true);
 	reqForRoom.send(null);
@@ -43,7 +43,7 @@ var room=document.getElementById('room-type');
         console.log("roomId " +roomId)
         console.log(bedId);
         	
-        	var finUrl='http://localhost:8080/rooms/update';
+        	var finUrl='https://kolafiedbears.herokuapp.com/rooms/update';
         	
         	var jsonData={};
         	jsonData["roomId"]=roomId;
