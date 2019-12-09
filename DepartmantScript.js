@@ -8,7 +8,7 @@ console.log(app.innerHTML)
 
 
 var request = new XMLHttpRequest()
-request.open('GET', 'https://kolafiedbears.herokuapp.com/department/all', true)
+request.open('GET', 'https://kolafiedbearsboot.herokuapp.com/department/all', true)
 request.onload = function() {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)
