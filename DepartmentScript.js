@@ -1,9 +1,9 @@
-const app = document.getElementById('department-list')
+const app = document.getElementById('dept-description')
 var html = ""
 
-/*const redraw = document.createElement('div')
+const redraw = document.createElement('div')
 app.appendChild(redraw)
-*/
+
 console.log(app.innerHTML)
 
 
@@ -14,8 +14,7 @@ request.onload = function() {
   var data = JSON.parse(this.response)
   if (request.status >= 200 && request.status < 400) {
 data.forEach(function(result, i) {
-	i=i+1
-	html = '<a class="nav-link ftco-animate fadeInUp ftco-animated" id="v-pills-'+i+'-tab" data-toggle="pill" href="#v-pills-'+i+'" role="tab" aria-controls="v-pills-'+i+'" aria-selected="false">'+result.deptName+'</a>'
+	html = '<div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate fadeInUp ftco-animated"><div class="staff"><div class="info text-center"><h2><a href="“#”">'+result.dept_name+'</a></h2><div class="position">'+result.dept_desc+'</div></div></div></div>'
 	app.innerHTML += html
 })
   } else {
