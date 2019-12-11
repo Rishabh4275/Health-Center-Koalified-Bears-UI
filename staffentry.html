@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -58,7 +59,7 @@
             <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
               <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">A place where health starts</h1>
               <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Hope. Care. Cure.</p>
-              <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-primary px-4 py-3">Register a Patient</a></p>
+              <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-primary px-4 py-3">Register a Staff</a></p>
             </div>
           </div>
         </div>
@@ -71,7 +72,7 @@
             <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
               <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">A place where health starts</h1>
               <p class="mb-4">Hope. Care. Cure.</p>
-              <p><a href="#" class="btn btn-primary px-4 py-3">Register a Patient</a></p>
+              <p><a href="#" class="btn btn-primary px-4 py-3">Register a Staff</a></p>
             </div>
           </div>
         </div>
@@ -83,64 +84,38 @@
     		<div class="row no-gutters">
 
 
-    			<div class="col-md-6 color-3 p-4">
-    				<h3 class="mb-2">Register a Patient</h3>
+    			<div class="col-md-8 color-3 p-4">
+    				<h3 class="mb-2">Register a Staff</h3>
     				<form action="#" class="appointment-form">
 	            <div class="row">
-	            	<!--<div class="col-sm-4">
-	                <div class="form-group">
-			              <div class="select-wrap">
-                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <input type="text" class="form-control" id="patient_id" placeholder="PatientID">
-                    </div>
-			            </div>
-	              </div>-->
+
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-user"></span></div>
-			              <input type="text" class="form-control" id="first_name" placeholder="First Name">
+			              <input type="text" class="form-control" id="name" placeholder="Name">
 			            </div>
 	              </div>
-				  <div class="col-sm-4">
+				<div class="col-sm-4">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-user"></span></div>
-			              <input type="text" class="form-control" id="last_name" placeholder="Last Name">
+			              <input type="text" class="form-control" id="type" placeholder="type">
 			            </div>
+					</div>
 	              </div>
-	              <div class="col-sm-4">
-	                <div class="form-group">
-	                	<div class="icon"><span class="icon-paper-plane"></span></div>
-			              <input type="text" class="form-control" id="patient_email" placeholder="Email">
-			            </div>
-	              </div>
-	            </div>
-	            <div class="row">
 	              <div class="col-sm-4">
 	                <div class="form-group">
 	                  <input type="text" class="form-control" id="address" placeholder="Address">
-	                </div>    
 	              </div>
-	              <div class="col-sm-4">
+	              <div class="col-sm-6">
 	                <div class="form-group">
-	                	<div class="icon"><span class="ion-ios-clock"></span></div>
-	                  <input type="text" class="form-control" id="age" placeholder="Age">
-	                </div>
-	              </div>
-				  <div class="col-sm-4">
-	                <div class="form-group">
-	                  <input type="text" class="form-control" id="sex" placeholder="Sex">
-	                </div>
-	              </div>
-	              <div class="col-sm-4">
-	                <div class="form-group">
-	                	<div class="icon"><span class="icon-phone2"></span></div>
-	                  <input type="text" class="form-control" id="mobile" placeholder="Mobile">
+	                	<div class="icon"><span class="ion-ios-calendar"></span></div>
+	                  <input type="text" class="form-control" id="dob" placeholder="dob">
 	                </div>
 	              </div>
 	            </div>
 	            
 	            <div class="form-group">
-	              <input type="submit" value="Register Patient" class="btn btn-primary" id="patient-submit">
+	              <input type="submit" value="Register Staff" class="btn btn-primary" id="staff-submit">
 	            </div>
 	          </form>
     			</div>
@@ -221,6 +196,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script src="./patientEntryScript.js"></script> 
+  <script src="./staffEntryScript.js"></script> 
   </body>
 </html>
