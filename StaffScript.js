@@ -1,3 +1,4 @@
+if(window.sessionStorage.accessToken!=='undefined'){
 const app = document.getElementById('staff-list')
 var html = ""
 
@@ -9,6 +10,7 @@ console.log(app.innerHTML)
 
 var request = new XMLHttpRequest()
 request.open('GET', 'http://localhost:8080/staff/all', true)
+request.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 request.onload = function() {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)
@@ -24,3 +26,4 @@ data.forEach(function(result, i) {
   }
 }
 request.send()
+}

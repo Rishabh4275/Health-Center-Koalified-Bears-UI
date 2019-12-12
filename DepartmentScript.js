@@ -1,3 +1,5 @@
+if(window.sessionStorage.accessToken!=='undefined'){
+console.log("token is "+window.sessionStorage.accessToken);
 const app = document.getElementById('dept-description')
 var html = ""
 
@@ -9,6 +11,7 @@ console.log(app.innerHTML)
 
 var request = new XMLHttpRequest()
 request.open('GET', 'http://localhost:8080/department/all', true)
+request.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 request.onload = function() {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)
@@ -24,3 +27,4 @@ data.forEach(function(result, i) {
   }
 }
 request.send()
+}

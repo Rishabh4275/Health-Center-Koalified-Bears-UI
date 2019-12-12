@@ -1,3 +1,4 @@
+if(window.sessionStorage.accessToken!=='undefined'){
 var docid = document.getElementById('doctor-down');
 console.log(docid)
 docid.length = 0;
@@ -12,6 +13,7 @@ const docurl = 'http://localhost:8080/doctors/all';
 
 const docreq = new XMLHttpRequest();
 docreq.open('GET', docurl, true);
+docreq.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 
 docreq.onload = function() {
   if (docreq.status === 200) {
@@ -35,3 +37,4 @@ docreq.onerror = function() {
 };
 
 docreq.send(); 
+}

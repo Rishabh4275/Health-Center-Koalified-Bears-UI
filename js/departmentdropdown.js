@@ -1,3 +1,4 @@
+if(window.sessionStorage.accessToken!=='undefined'){
 let dropdown = document.getElementById('appointment_department');
 console.log(dropdown)
 dropdown.length = 0;
@@ -12,7 +13,7 @@ const url = 'http://localhost:8080/department/all';
 
 const request = new XMLHttpRequest();
 request.open('GET', url, true);
-
+request.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 request.onload = function() {
   if (request.status === 200) {
     const data = JSON.parse(request.responseText);
@@ -38,4 +39,5 @@ request.onerror = function() {
   console.error('An error occurred fetching the JSON from ' + url);
 };
 
-request.send();  
+request.send();
+}  

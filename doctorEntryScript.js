@@ -1,4 +1,5 @@
-var button=document.getElementById('doctor-submit');
+if(window.sessionStorage.accessToken!=='undefined'){
+	var button=document.getElementById('doctor-submit');
 
 button.onclick = function() {
 	var name = document.getElementById('name').value;
@@ -16,6 +17,7 @@ button.onclick = function() {
         	jsonData["specialization"]=specialization;
         	var xhr = new XMLHttpRequest();
 			xhr.open("POST",finUrl,true);
+			xhr.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 			xhr.setRequestHeader("Content-Type", "application/json");
 			xhr.send(JSON.stringify(jsonData));
 			
@@ -27,3 +29,4 @@ button.onclick = function() {
 				}
 			}
   }
+}
