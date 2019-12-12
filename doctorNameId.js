@@ -33,7 +33,7 @@ docreq.onload = function() {
 }
 
 docreq.onerror = function() {
-  console.error('An error occurred fetching the JSON from ' + paturl);
+  console.error('An error occurred fetching the JSON from ' + docurl);
 };
 
 docreq.send(); 
