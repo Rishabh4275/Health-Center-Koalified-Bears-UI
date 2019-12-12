@@ -1,3 +1,4 @@
+if(window.sessionStorage.accessToken!=='undefined'){
 var button=document.getElementById('inst-update');
 button.onclick = function() {
 var inst = document.getElementById('inst-down');
@@ -15,7 +16,9 @@ var count = document.getElementById('i_count').value;
 			//jsonData["price"]=price;
         	var xhr = new XMLHttpRequest();
 			xhr.open("PUT",finUrl,true);
+			xhr.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 			xhr.setRequestHeader("Content-Type", "application/json");
+			
 			xhr.send(JSON.stringify(jsonData));
 			
 			xhr.onreadystatechange = processRequest;
@@ -26,3 +29,4 @@ var count = document.getElementById('i_count').value;
 				}
 			}
   }
+}

@@ -1,3 +1,4 @@
+if(window.sessionStorage.accessToken!=='undefined'){
 var button=document.getElementById('staff-update');
 button.onclick = function() {
 var staff = document.getElementById('staff-down');
@@ -19,6 +20,7 @@ console.log(eid);
         	jsonData["dob"]=dob;
         	var xhr = new XMLHttpRequest();
 			xhr.open("PUT",finUrl,true);
+			xhr.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 			xhr.setRequestHeader("Content-Type", "application/json");
 			xhr.send(JSON.stringify(jsonData));
 			
@@ -30,4 +32,5 @@ console.log(eid);
 				}
 			}
   }
+
 

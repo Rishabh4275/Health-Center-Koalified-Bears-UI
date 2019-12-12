@@ -1,4 +1,5 @@
-var button=document.getElementById('instrument-submit');
+if(window.sessionStorage.accessToken!=='undefined'){
+	var button=document.getElementById('instrument-submit');
 
 button.onclick = function() {
 	var name = document.getElementById('i_name').value;
@@ -14,6 +15,7 @@ button.onclick = function() {
         	jsonData["uses"]=uses;
         	var xhr = new XMLHttpRequest();
 			xhr.open("POST",finUrl,true);
+			xhr.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 			xhr.setRequestHeader("Content-Type", "application/json");
 			xhr.send(JSON.stringify(jsonData));
 			xhr.onreadystatechange = processRequest;
@@ -24,3 +26,4 @@ button.onclick = function() {
 				}
 			}
   }
+}
