@@ -20,6 +20,7 @@ var room=document.getElementById('room-type');
 	var roomRetreivalURL="http://localhost:8080/rooms?availibility=Yes&roomType="+roomType;
 	var reqForRoom=new XMLHttpRequest();
 	reqForRoom.open("GET",roomRetreivalURL,true);
+	reqForRoom.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 	reqForRoom.send(null);
 	
 	reqForRoom.onreadystatechange = processRequest;
@@ -49,6 +50,7 @@ var room=document.getElementById('room-type');
         	var xhr = new XMLHttpRequest();
 			xhr.open("PUT",finUrl,true);
 			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 			xhr.send(JSON.stringify(jsonData));
 			
 			xhr.onreadystatechange = processRequest2;
