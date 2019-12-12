@@ -1,11 +1,5 @@
+if(window.sessionStorage.accessToken!=='undefined'){
 var button=document.getElementById('book-room');
-
-
-
-
-
-
-
 
 
 button.onclick = function() {
@@ -71,4 +65,4 @@ var room=document.getElementById('room-type');
 	}
 
 }
-
+}

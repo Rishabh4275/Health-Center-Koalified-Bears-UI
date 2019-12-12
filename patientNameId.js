@@ -1,3 +1,5 @@
+if(window.sessionStorage.accessToken!=='undefined'){
+console.log("token is "+window.sessionStorage.accessToken);
 let pat = document.getElementById('patient-down');
 console.log(pat)
 pat.length = 0;
@@ -13,6 +15,7 @@ const paturl = 'http://localhost:8080/patients/all';
 const req = new XMLHttpRequest();
 req.open('GET', paturl, true);
 
+req.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 req.onload = function() {
   if (req.status === 200) {
     const data = JSON.parse(req.responseText);
@@ -35,3 +38,4 @@ req.onerror = function() {
 };
 
 req.send(); 
+}

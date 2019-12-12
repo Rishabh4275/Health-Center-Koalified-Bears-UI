@@ -9,11 +9,14 @@ defaultOption.text = 'Room Type';
 dropdown.add(defaultOption);
 dropdown.selectedIndex = 0;
 
+console.log("session token is"+window.sessionStorage.accessToken);
+if(window.sessionStorage.accessToken!=='undefined'){
 const url = 'http://localhost:8080/rooms?availibility=Yes';
 
 const request = new XMLHttpRequest();
 request.open('GET', url, true);
 
+request.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 request.onload = function() {
   if (request.status === 200) {
     const data = JSON.parse(request.responseText);
@@ -39,3 +42,4 @@ request.onerror = function() {
 };
 
 request.send(); 
+}
