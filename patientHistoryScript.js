@@ -16,7 +16,7 @@ request.onload = function() {
   var data = JSON.parse(this.response)
   if (request.status >= 200 && request.status < 400) {
 data.forEach(function(result, i) {
-	html = '<tr><td>'+result.case_id+'</td><td>'+result.patient_id+'</td><td>'+result.date_of_admission+'</td><td>'+result.insurance_id+'</td><td>'+result.doctor_id+'</td><td>'+result.diagnose_code+'</td></tr>'
+	html = '<tr><td>'+result.case_id+'</td><td>'+result.date_of_admission+'</td><td>'+result.insurance_id+'</td><td>'+result.diagnose_code+'</td></tr>'
 	app.innerHTML += html
 })
   } else {
