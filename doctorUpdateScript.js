@@ -1,3 +1,4 @@
+if(window.sessionStorage.accessToken!=='undefined'){
 var button=document.getElementById('doctor-update');
 button.onclick = function() {
 var doctor = document.getElementById('doctor-down');
@@ -21,6 +22,7 @@ console.log(doctor_id);
         	jsonData["specialization"]=specialization;
         	var xhr = new XMLHttpRequest();
 			xhr.open("PUT",finUrl,true);
+			xhr.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 			xhr.setRequestHeader("Content-Type", "application/json");
 			xhr.send(JSON.stringify(jsonData));
 			
@@ -32,4 +34,4 @@ console.log(doctor_id);
 				}
 			}
   }
-
+}

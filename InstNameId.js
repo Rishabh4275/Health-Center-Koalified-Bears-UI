@@ -1,3 +1,4 @@
+if(window.sessionStorage.accessToken!=='undefined'){
 let doc = document.getElementById('inst-down');
 console.log(doc)
 doc.length = 0;
@@ -12,7 +13,7 @@ const docurl = 'http://localhost:8080/instruments/all';
 
 const req = new XMLHttpRequest();
 req.open('GET', docurl, true);
-
+req.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 req.onload = function() {
   if (req.status === 200) {
     const data = JSON.parse(req.responseText);
@@ -35,3 +36,4 @@ req.onerror = function() {
 };
 
 req.send();
+}

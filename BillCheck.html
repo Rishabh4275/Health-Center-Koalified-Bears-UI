@@ -1,7 +1,6 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Health Care System </title>
+    <title>Health Care System</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -26,8 +25,7 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
-    
+  <body id="root">
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">Kolafied<span>Bears</span></a>
@@ -37,13 +35,12 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <!--<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>-->
+	          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="departments.html" class="nav-link">Departments</a></li>
-	          <li class="nav-item active"><a href="services.html" class="nav-link">Dashboard</a></li>
-			  <li class="nav-item"><a href="roombook.html" class="nav-link">Book A Room</a></li>
-			  <li class="nav-item"><a href="appointments.html" class="nav-link">Appointments</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>			  
-	          <!--<li class="nav-item cta"><a href="login.html" class="nav-link" data-toggle="modal" data-target="#modalRequest"><span>Login\Register</span></a></li>-->
+	          <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+			  <li class="nav-item"><a href="index.html" class="nav-link">Appointments</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item cta"><a href="login.html" class="nav-link" data-toggle="modal" data-target="#modalRequest"><span>Login\Register</span></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -51,11 +48,13 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item bread-item" style="background-image: url('images/image_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="slider-item bread-item" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container" data-scrollax-parent="true">
           <div class="row slider-text align-items-end">
             <div class="col-md-7 col-sm-12 ftco-animate mb-5">
+              <p class="breadcrumbs" data-scrollax=" properties: { translateY: '70%', opacity: 1.6}"><span class="mr-2"><a href="index.html">Home</a></span>
+              <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}">Bill Details >> Bills</h1>
             </div>
           </div>
         </div>
@@ -66,137 +65,35 @@
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-            <h2 class="mb-2">Our Service Keeps you Smile</h2>
-          </div>
+            <h2 class="mb-3">Bill Check</h2>
+           </div>
         </div>
+		
+		<table class="table">
+  		<thead>
+   		 <tr>
+   		 	 <th scope="col">BillID</th>
+     		 <th scope="col">BillDate</th>
+     		 <th scope="col">Patient Email</th>
+     		 <th scope="col">Bill Amount</th>
+		</tr>
+		
+  		</thead>
+  		<tbody id="bill-list">
+  		
+		</tbody>
+		</table>
       </div>
     </section>
 
-    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
-    	<div class="container">
-    		<div class="row d-flex align-items-center">
-    			<div class="col-md-3 aside-stretch py-5">
-    				<div class=" heading-section heading-section-white ftco-animate pr-md-4">
-	            <h2 class="mb-3">Achievements</h2>
-	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-	          </div>
-    			</div>
-    			<div class="col-md-9 py-5 pl-md-5">
-		    		<div class="row">
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18">
-		              <div class="text">
-		                <strong class="number" data-number="14">0</strong>
-		                <span>Years of Experience</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18">
-		              <div class="text">
-		                <strong class="number" data-number="4500">0</strong>
-		                <span>Qualified Dentist</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18">
-		              <div class="text">
-		                <strong class="number" data-number="4200">0</strong>
-		                <span>Happy Smiling Customer</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18">
-		              <div class="text">
-		                <strong class="number" data-number="320">0</strong>
-		                <span>Patients Per Year</span>
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-		      </div>
-	      </div>
-    	</div>
+
+  <!-- <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+
     </section>
 
     <section class="ftco-section">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-5">
-    		<div class="row">
-        	
-        	<div class="col-md-4 ftco-animate">
-        		<div class="pricing-entry pb-5 text-center">
-        			<div>
-	        			<h3 class="mb-8">Doctors</h3>
-	        			<p><span class="price">30</span></p>
-	        		</div>
-        			<ul>
-        				<li><a href="doctorentry.html">Add New</a></li>
-						
-						<li><a href="doctorUpdate.html">Update</a></li>
-        			</ul>
-        			<p class="button text-center "><a href="doctors.html" class="btn btn-primary btn-outline-primary ">Check</a></p>
-        		</div>
-        	</div>
-        	<div class="col-md-4 ftco-animate">
-        		<div class="pricing-entry active pb-5 text-center">
-        			<div>
-	        			<h3 class="mb-8">Staff</h3>
-	        			<p><span class="price">50</span></p>
-	        		</div>
-        			<ul>
-						<li><a href="staffentry.html">Add New</a></li>
-						<li><a href="staffUpdate.html">Update</a></li>
-        			</ul>
-        			<p class="button text-center"><a href="staff.html" class="btn btn-primary btn-outline-primary px-4 py-3">Check</a></p>
-        		</div>
-        	</div>
-        	<div class="col-md-4 ftco-animate">
-        		<div class="pricing-entry pb-5 text-center">
-        			<div>
-	        			<h3 class="mb-8">Patients</h3>
-	        			<p><span class="price">141</span></p>
-	        		</div>
-        			<ul>
-        				<li><a href="patiententry.html">Add New</a></li>
-						<li><a href="patientUpdate.html">Update</a></li>
-						<li><a href=#>Bill</a></li>
-        			</ul>
-        			<p class="button text-center"><a href="patients.html" class="btn btn-primary btn-outline-primary px-4 py-3">Check</a></p>
-        		</div>
-        	</div>
-        	<div class="col-md-4 ftco-animate">
-        		<div class="pricing-entry pb-5 text-center">
-        			<div>
-	        			<h3 class="mb-8">Medicines</h3>
-	        			<p><span class="price">36</span></p>
-	        		</div>
-        			<ul>
-        				<li><a href="medAdd.html">Add</a></li>
-						<li><a href="medUpdate.html">Update</a></li>
-        			</ul>
-        			<p class="button text-center "><a href="medicines.html" class="btn btn-primary btn-outline-primary ">Check</a></p>
-        		</div>
-        	</div>
-        	<div class="col-md-4 ftco-animate">
-        		<div class="pricing-entry pb-5 text-center">
-        			<div>
-	        			<h3 class="mb-8">Hospital Instruments</h3>
-	        			<p><span class="price">36</span></p>
-	        		</div>
-        			<ul>
-        				<li><a href="instAdd.html">Add</a></li>
-						<li><a href="instUpdate.html">Update</a></li>
-        			</ul>
-        			<p class="button text-center "><a href="instruments.html" class="btn btn-primary btn-outline-primary ">Check</a></p>
-        		</div>
-        	</div>
-        </div>
-        </div>
-    	</div>
-    </section>
+
+    </section>-->
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
@@ -204,7 +101,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made by Koalafied Bears</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
@@ -282,7 +179,8 @@
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+  <script src="./BillCheck.js"></script>
   </body>
 </html>

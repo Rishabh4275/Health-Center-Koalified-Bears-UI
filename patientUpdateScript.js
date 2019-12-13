@@ -1,3 +1,4 @@
+if(window.sessionStorage.accessToken!=='undefined'){
 var button=document.getElementById('patient-update');
 button.onclick = function() {
 var patient = document.getElementById('patient-down');
@@ -24,6 +25,7 @@ console.log(patient_id);
         	jsonData["sex"]=sex;
         	var xhr = new XMLHttpRequest();
 			xhr.open("PUT",finUrl,true);
+			xhr.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 			xhr.setRequestHeader("Content-Type", "application/json");
 			xhr.send(JSON.stringify(jsonData));
 			
@@ -35,4 +37,4 @@ console.log(patient_id);
 				}
 			}
   }
-
+}
