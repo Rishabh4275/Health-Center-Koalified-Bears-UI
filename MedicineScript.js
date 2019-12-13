@@ -13,6 +13,7 @@ request.open('GET', 'http://localhost:8080/medicines/all', true)
 request.setRequestHeader('Authorization','Bearer '+window.sessionStorage.accessToken);
 request.onload = function() {
   // Begin accessing JSON data here
+	console.log(request.response);
   var data = JSON.parse(this.response)
   if (request.status >= 200 && request.status < 400) {
 data.forEach(function(result, i) {
